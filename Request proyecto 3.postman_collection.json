@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "a11aea35-bbf5-4896-b43a-960a6744c647",
+		"name": "Request proyecto 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Buscar cliente por numero de documento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cliente/numero-documento?numeroDocumento=87654321985",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"numero-documento"
+							],
+							"query": [
+								{
+									"key": "numeroDocumento",
+									"value": "87654321985"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tarjeta",
+			"item": [
+				{
+					"name": "Redis",
+					"item": [
+						{
+							"name": "Listar códigos de aprobaciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/tarjeta/redis",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"tarjeta",
+										"redis"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Validar tarjeta de debito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/tarjeta/validar-tarjeta-debito?numeroTarjeta=9874561231472563&codigoValidacion=321",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"tarjeta",
+								"validar-tarjeta-debito"
+							],
+							"query": [
+								{
+									"key": "numeroTarjeta",
+									"value": "9874561231472563"
+								},
+								{
+									"key": "codigoValidacion",
+									"value": "321"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar tarjetas de debitos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/tarjeta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"tarjeta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Billetera",
+			"item": [
+				{
+					"name": "Listar billeteras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8099/billetera-virtual",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8099",
+							"path": [
+								"billetera-virtual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar billetera",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"celular\": \"912387654\",\r\n        \"nombreRazonSocial\": \"Pepito Roman Quispe\",\r\n        \"numeroDocumento\": \"12654321\",\r\n        \"password\": \"123456\",\r\n        \"saldo\": 500.0,\r\n        \"tipoBilletera\": \"1\",\r\n        \"tipoCliente\": \"1\",\r\n        \"tipoDocumento\": \"1\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8099/billetera-virtual",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8099",
+							"path": [
+								"billetera-virtual"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Emitir pago a otra billetera",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8099/billetera-virtual/emitir-pago/63f81aacb886f97c4ec92928?monto=50&celular=987651230&descripcion=tu propina",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8099",
+							"path": [
+								"billetera-virtual",
+								"emitir-pago",
+								"63f81aacb886f97c4ec92928"
+							],
+							"query": [
+								{
+									"key": "monto",
+									"value": "50"
+								},
+								{
+									"key": "celular",
+									"value": "987651230"
+								},
+								{
+									"key": "descripcion",
+									"value": "tu propina"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta bancaria",
+			"item": [
+				{
+					"name": "Actualizar saldo de una cuenta bancaria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/cuenta-bancaria/actualizar-saldo?numeroTarjeta=9874561231472563&operacion=1&monto=50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cuenta-bancaria",
+								"actualizar-saldo"
+							],
+							"query": [
+								{
+									"key": "numeroTarjeta",
+									"value": "9874561231472563"
+								},
+								{
+									"key": "operacion",
+									"value": "1"
+								},
+								{
+									"key": "monto",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Billetera movimiento",
+			"item": [
+				{
+					"name": "Listar movimientos con numero de celular",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8098/billetera-virtual-movimiento?celular=987651230",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"billetera-virtual-movimiento"
+							],
+							"query": [
+								{
+									"key": "celular",
+									"value": "987651230"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/billetera-virtual-movimiento?celular=987651230&monto=50.0&descripcion=Para tu mostrito&nombreRazonSocial=Pepito Juanito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"billetera-virtual-movimiento"
+							],
+							"query": [
+								{
+									"key": "celular",
+									"value": "987651230"
+								},
+								{
+									"key": "monto",
+									"value": "50.0"
+								},
+								{
+									"key": "descripcion",
+									"value": "Para tu mostrito"
+								},
+								{
+									"key": "nombreRazonSocial",
+									"value": "Pepito Juanito"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
